@@ -9,7 +9,7 @@
       homedir = "${config.xdg.dataHome}/gnupg";
       settings = {
         use-agent = true;
-        default-key = "20CA9B91AA1F405E";
+        default-key = "83A81C7EDCA26C0B";
       };
     };
   };

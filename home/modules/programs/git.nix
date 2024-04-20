@@ -13,7 +13,7 @@
       userName = "dess";
       userEmail = "dess@kyoline.dev";
       signing = {
-        key = "20CA9B91AA1F405E";
+        key = "83A81C7EDCA26C0B";
         signByDefault = true;
       };
 
