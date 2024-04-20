@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       KbdInteractiveAuthentication = false;
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       PermitRootLogin = "yes";
       UseDns = true;
       X11Forwarding = false;

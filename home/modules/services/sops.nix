@@ -15,6 +15,9 @@ in {
       "private_keys/zero" = {
         path = "/home/kd/.ssh/id_zero";
       };
+      "private_keys/dess" = {
+        path = "/home/kd/.ssh/id_dess";
+      };
     };
   };
 }

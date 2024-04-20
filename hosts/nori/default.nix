@@ -86,7 +86,7 @@
     192.168.0.134 mcs
     192.168.0.120 idrac
     192.168.1.171 proxmox
-    192.168.1.41 dockerzero
+    192.168.1.203 dockerzero
     192.168.1.40 pihole
   '';
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

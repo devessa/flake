@@ -4,6 +4,9 @@
   ...
 }: {
   environment.pathsToLink = ["/share/zsh"];
+  imports = [
+    ../../../home/modules/programs/starship.nix
+  ];
 
   programs = {
     less.enable = true;
