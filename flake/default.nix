@@ -2,7 +2,6 @@
   imports = [
     ../home
     ../hosts
-    ../pkgs
   ];
 
   systems = ["x86_64-linux"];

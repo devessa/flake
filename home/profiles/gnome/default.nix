@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ../../modules/dev
     ../../modules/config/gtk.nix
     ../../modules/config/home-cursor.nix
     ../../modules/programs/vesktop.nix

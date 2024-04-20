@@ -11,6 +11,7 @@
     ./modules/programs/utils.nix
     ./modules/programs/zsh.nix
     ./modules/services/gnome-keyring.nix
+    ./modules/services/sops.nix
   ];
 
   homeImports = {
