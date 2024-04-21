@@ -11,7 +11,7 @@
         emoji = ["Noto Color Emoji"];
         monospace = ["code" "Noto Color Emoji" "Symbols Nerd Font"];
         serif = ["Noto Serif" "Noto Color Emoji"];
-        sansSerif = ["type" "Work Sans" "Noto Color Emoji"];
+        sansSerif = ["Nunito" "type" "Noto Color Emoji"];
       };
 
       hinting = {
@@ -38,7 +38,7 @@
       noto-fonts-cjk
       noto-fonts-emoji
 
-      (google-fonts.override {fonts = ["Work Sans"];})
+      (google-fonts.override {fonts = ["Nunito"];})
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
   };
