@@ -1,4 +1,8 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   users.mutableUsers = false;
   sops.secrets.kd-password.neededForUsers = true;
   sops.secrets.root-password.neededForUsers = true;

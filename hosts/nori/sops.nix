@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  ...
-}: let
+{inputs, ...}: let
   secretspath = builtins.toString inputs.mysecrets;
 in {
   imports = [

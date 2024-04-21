@@ -6,11 +6,7 @@
 
   systems = ["x86_64-linux"];
 
-  perSystem = {
-    config,
-    pkgs,
-    ...
-  }: {
+  perSystem = {pkgs, ...}: {
     devShells.default = pkgs.mkShell {
       packages = with pkgs; [
         alejandra

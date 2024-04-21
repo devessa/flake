@@ -1,8 +1,6 @@
 {
-  lib,
-  pkgs,
-  ...
-}: {
+  pkgs, 
+...}: {
   imports = [
     ../../modules/config/gtk.nix
     ../../modules/config/home-cursor.nix
