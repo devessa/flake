@@ -12,7 +12,7 @@
     };
 
     iconTheme = {
-      name = "Zafiro-icons-dark";
+      name = "Zafiro-icons-Dark";
       package = pkgs.zafiro-icons;
     };
 

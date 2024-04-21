@@ -6,7 +6,7 @@
   home = {
     pointerCursor = {
       package = pkgs.graphite-cursors;
-      name = "Graphite-dark";
+      name = "graphite-dark";
       size = 24;
       gtk.enable = true;
       x11.enable = true;
