@@ -1,7 +1,7 @@
-{
+{lib, ...}: {
   home = {
-    username = "kd";
-    homeDirectory = "/home/kd";
+    username = "kyodev";
+    homeDirectory = lib.mkForce "/home/dess";
     extraOutputsToInstall = ["doc" "devdoc"];
   };
 

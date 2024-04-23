@@ -12,11 +12,11 @@
   specialArgs = {inherit inputs self;};
 in {
   flake.nixosConfigurations = {
-    nori = nixosSystem {
+    laptop = nixosSystem {
       inherit specialArgs;
 
       modules = [
-        ./nori
+        ./laptop
 
         "${modules}/config"
         "${modules}/programs"
@@ -27,7 +27,7 @@ in {
 
         {
           home-manager = {
-            users.kd.imports = homeImports."kd@nori";
+            users.kyodev.imports = homeImports."kyodev@laptop";
             extraSpecialArgs = specialArgs;
           };
         }

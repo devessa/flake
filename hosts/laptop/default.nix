@@ -9,7 +9,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./sops.nix
   ];
-  networking.hostName = "nori";
+  networking.hostName = "laptop";
   services.printing.enable = true;
   # hardware config
   boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod"];
@@ -42,29 +42,38 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # -- NVIDIA --
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    prime = {
-      offload = {
+  specialisation = {
+    plugged-in.configuration = {
+      # -- NVIDIA --
+      services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+      hardware.opengl = {
         enable = true;
-        enableOffloadCmd = true;
+        driSupport = true;
+        driSupport32Bit = true;
       };
-      # got buses from lshw
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
+
+      hardware.nvidia = {
+        modesetting.enable = true;
+        prime = {
+          offload = {
+            enable = true;
+            enableOffloadCmd = true;
+          };
+          # got buses from lshw
+          intelBusId = "PCI:0:2:0";
+          nvidiaBusId = "PCI:1:0:0";
+        };
+        powerManagement.enable = false;
+        powerManagement.finegrained = false;
+
+        open = false;
+        nvidiaSettings = true;
+      };
+
+      hardware.bluetooth.enable = true;
+      hardware.bluetooth.powerOnBoot = true;
     };
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-
-    open = false;
-    nvidiaSettings = true;
   };
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -77,6 +86,27 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
+  };
+
+  services.power-profiles-daemon.enable = false;
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 20;
+
+      #Optional helps save long term battery health
+      START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
+      STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+    };
   };
 
   # Hosts
@@ -95,11 +125,6 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.tailscale.enable = true;
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
 
   environment.sessionVariables = {
     # if ur cursor becomes invisble

@@ -10,12 +10,13 @@
     ./modules/programs/starship.nix
     ./modules/programs/utils.nix
     ./modules/programs/zsh.nix
+    ./modules/programs/signal-desktop.nix
     ./modules/services/gnome-keyring.nix
     ./modules/services/sops.nix
   ];
 
   homeImports = {
-    "kd@nori" =
+    "kyodev@laptop" =
       [
         ./home.nix
         ./profiles/gnome
@@ -32,10 +33,10 @@ in {
 
   flake = {
     homeConfigurations = {
-      "kd@nori" = homeManagerConfiguration {
+      "kyodev@laptop" = homeManagerConfiguration {
         extraSpecialArgs = {inherit inputs;};
         inherit pkgs;
-        modules = homeImports."kd@nori";
+        modules = homeImports."kyodev@laptop";
       };
     };
   };

@@ -15,7 +15,7 @@
         nil
       ];
 
-      name = "nori";
+      name = "laptop";
       meta.description = "default devshell";
 
       DIRENV_LOG_FORMAT = "";

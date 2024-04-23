@@ -6,17 +6,17 @@ in {
   ];
 
   sops = {
-    age.keyFile = "/home/kd/.config/sops/age/keys.txt";
+    age.keyFile = "/home/dess/.config/sops/age/keys.txt";
 
     defaultSopsFile = "${secretspath}/secrets.yaml";
     validateSopsFiles = false;
 
     secrets = {
       "private_keys/zero" = {
-        path = "/home/kd/.ssh/id_zero";
+        path = "/home/dess/.ssh/id_zero";
       };
       "private_keys/dess" = {
-        path = "/home/kd/.ssh/id_dess";
+        path = "/home/dess/.ssh/id_dess";
       };
     };
   };

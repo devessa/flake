@@ -36,8 +36,6 @@
     '';
 
     completionInit = ''
-      # Load Zsh modules
-      zmodload zsh/zle
       zmodload zsh/complist
       autoload -U compinit
       zstyle ':completion:*' menu select
@@ -99,13 +97,12 @@
 
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
       export GPG_TTY=$(tty)
-      eval "$(fzf --zsh)"
     '';
 
     shellAliases = {
-      run = "nix-shell --command zsh -p";
-      ns = "nix-shell --command zsh";
-      nd = "nix develop --command zsh";
+      run = "nix-shell -p";
+      ns = "nix-shell";
+      nd = "nix develop";
       g = "git";
       gs = "git st";
 
@@ -148,8 +145,6 @@
       enable = true;
       plugins = [
         {name = "marlonrichert/zsh-autocomplete";}
-        {name = "zsh-users/zsh-autosuggestions";}
-        {name = "wfxr/forgit";}
         {name = "chisui/zsh-nix-shell";}
         {name = "jeffreytse/zsh-vi-mode";}
       ];
