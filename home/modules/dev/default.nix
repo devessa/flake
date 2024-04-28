@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [];
   home = {
     packages = lib.attrValues {
       inherit

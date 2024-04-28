@@ -10,6 +10,7 @@
     ./modules/programs/starship.nix
     ./modules/programs/utils.nix
     ./modules/programs/zsh.nix
+    ./modules/programs/lf.nix
     ./modules/programs/signal-desktop.nix
     ./modules/services/gnome-keyring.nix
     ./modules/services/sops.nix

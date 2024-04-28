@@ -88,6 +88,11 @@
     variant = "";
   };
 
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
+  programs.adb.enable = true;
+
   services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;

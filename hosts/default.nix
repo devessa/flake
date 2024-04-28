@@ -23,6 +23,7 @@ in {
         "${modules}/security"
         "${modules}/services"
         "${modules}/virtualisation/docker.nix"
+        "${modules}/virtualisation/vmware.nix"
         "${profiles}/gnome"
 
         {

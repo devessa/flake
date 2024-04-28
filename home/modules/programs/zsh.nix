@@ -10,8 +10,8 @@
     dirHashes = {
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
-      code = "$HOME/Documents/code";
-      dots = "$HOME/Documents/code/yuki";
+      src = "$HOME/src";
+      dots = "/flake";
       pics = "$HOME/Pictures";
       vids = "$HOME/Videos";
     };
@@ -100,8 +100,8 @@
     '';
 
     shellAliases = {
-      run = "nix-shell -p";
-      ns = "nix-shell";
+      run = "nix-shell --command 'zsh' -p";
+      ns = "nix-shell --command 'zsh'";
       nd = "nix develop";
       g = "git";
       gs = "git st";
