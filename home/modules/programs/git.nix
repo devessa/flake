@@ -11,9 +11,9 @@
       delta.enable = true;
 
       userName = "dess";
-      userEmail = "dess@kyoline.dev";
+      userEmail = "hi@dessa.dev";
       signing = {
-        key = "83A81C7EDCA26C0B";
+        key = "BC4072495F2567DE";
         signByDefault = true;
       };
 

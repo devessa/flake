@@ -3,11 +3,11 @@
   config,
   ...
 }: {
-  users.users.kyodev = {
+  users.users.dev = {
     isNormalUser = true;
     shell = pkgs.zsh;
     uid = 1000;
-    home = "/home/dess";
+    home = "/home/dev";
 
     extraGroups = [
       "adbusers"
@@ -22,7 +22,7 @@
     ];
 
     openssh.authorizedKeys.keys = [
-      (builtins.readFile ./id_dess.pub)
+      (builtins.readFile ./id_dev.pub)
     ];
 
     packages = with pkgs; [
@@ -41,8 +41,9 @@
   };
 
   users.users.root = {
+    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
-      (builtins.readFile ./id_dess.pub)
+      (builtins.readFile ./id_dev.pub)
     ];
   };
 }

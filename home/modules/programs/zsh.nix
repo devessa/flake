@@ -96,12 +96,13 @@
       bindkey "^E" vi-end-of-line
 
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+      export KEYTIMEOUT=1
       export GPG_TTY=$(tty)
     '';
 
     shellAliases = {
       run = "nix-shell --command 'zsh' -p";
-      ns = "nix-shell --command 'zsh'";
+      nsh = "nix-shell --command 'zsh'";
       nd = "nix develop";
       g = "git";
       gs = "git st";
@@ -135,6 +136,7 @@
       glg = "git lg";
       ghr = "gh repo";
       serve = "${lib.getExe pkgs.python3} -m http.server";
+      ytmp3 = ''${lib.getExe pkgs.yt-dlp} --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata --output "%(title)s.%(ext)s"'';
     };
     history = {
       expireDuplicatesFirst = true;

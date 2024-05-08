@@ -13,11 +13,10 @@
     ./modules/programs/lf.nix
     ./modules/programs/signal-desktop.nix
     ./modules/services/gnome-keyring.nix
-    ./modules/services/sops.nix
   ];
 
   homeImports = {
-    "kyodev@laptop" =
+    "dev@laptop" =
       [
         ./home.nix
         ./profiles/gnome
@@ -34,10 +33,10 @@ in {
 
   flake = {
     homeConfigurations = {
-      "kyodev@laptop" = homeManagerConfiguration {
+      "dev@laptop" = homeManagerConfiguration {
         extraSpecialArgs = {inherit inputs;};
         inherit pkgs;
-        modules = homeImports."kyodev@laptop";
+        modules = homeImports."dev@laptop";
       };
     };
   };

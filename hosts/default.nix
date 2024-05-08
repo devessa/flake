@@ -28,7 +28,7 @@ in {
 
         {
           home-manager = {
-            users.kyodev.imports = homeImports."kyodev@laptop";
+            users.dev.imports = homeImports."dev@laptop";
             extraSpecialArgs = specialArgs;
           };
         }

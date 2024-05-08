@@ -5,6 +5,7 @@
     ../../modules/config/home-cursor.nix
     ../../modules/programs/vesktop.nix
     ../../modules/programs/kitty.nix
+    ../../modules/programs/nix-index-db.nix
     ../../modules/programs/media
   ];
   dconf = {

@@ -7,7 +7,6 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./sops.nix
   ];
   networking.hostName = "laptop";
   services.printing.enable = true;
@@ -139,7 +138,7 @@
   };
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-wlr
+    pkgs.xdg-desktop-portal-gtk
   ];
   system.stateVersion = "24.05";
 }
