@@ -11,6 +11,7 @@
         just
         nil
         alejandra
+        corepack
         ;
     };
   };

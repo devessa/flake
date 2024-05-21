@@ -9,7 +9,7 @@
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = ["code" "Noto Color Emoji" "Symbols Nerd Font"];
+        monospace = ["Iosevka" "Noto Color Emoji" "Symbols Nerd Font"];
         serif = ["Noto Serif" "Noto Color Emoji"];
         sansSerif = ["Nunito" "type" "Noto Color Emoji"];
       };
@@ -37,6 +37,7 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      iosevka
 
       (google-fonts.override {fonts = ["Nunito"];})
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})

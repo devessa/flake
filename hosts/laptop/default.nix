@@ -81,6 +81,11 @@
     enableSSHSupport = true;
     pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
   };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";

@@ -5,7 +5,7 @@
 
     font = {
       package = pkgs.jetbrains-mono;
-      name = "JetBrains Mono";
+      name = "Iosevka";
     };
 
     environment = {

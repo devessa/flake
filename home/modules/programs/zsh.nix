@@ -2,7 +2,11 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  pnpmmoment = pkgs.writeShellScriptBin "pnpmmoment" ''
+    pnpm add $@ --no-lockfile
+    npm i --package-lock-only &>/dev/null'';
+in {
   programs.git.enable = true;
   programs.zsh = {
     enable = true;
@@ -106,10 +110,15 @@
       nd = "nix develop";
       g = "git";
       gs = "git st";
+      gst = "git st";
 
       src = "cd $HOME/src";
       sv0 = "ssh -l root proxmox";
       nmcs = "ssh -l kd nmcs";
+
+      pna = "${pnpmmoment}/bin/pnpmmoment";
+      pn = "pnpm";
+      pnl = "pnpm --no-lockfile";
 
       rm = "rm -rf";
       cp = "cp -ri";
@@ -147,7 +156,13 @@
       enable = true;
       plugins = [
         {name = "marlonrichert/zsh-autocomplete";}
-        {name = "chisui/zsh-nix-shell";}
+        {
+          name = "chisui/zsh-nix-shell";
+          tags = [
+            "at:v0.8.0"
+            "as:plugin"
+          ];
+        }
         {name = "jeffreytse/zsh-vi-mode";}
       ];
     };

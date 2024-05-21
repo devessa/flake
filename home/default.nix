@@ -12,6 +12,8 @@
     ./modules/programs/zsh.nix
     ./modules/programs/lf.nix
     ./modules/programs/signal-desktop.nix
+    ./modules/programs/nom.nix
+    ./modules/programs/pinta.nix
     ./modules/services/gnome-keyring.nix
   ];
 

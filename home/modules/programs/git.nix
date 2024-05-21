@@ -21,10 +21,12 @@
         lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --";
         nuke = "!git clean -xdf && git reset --hard && git pull";
         st = "status -sb";
+        sync = "!git push && git pull";
         rs = "restore --staged";
         ll = "log --oneline";
         last = "log -1 HEAD --stat";
         cm = "commit -m";
+        co = "checkout";
         rv = "remote -v";
         df = "diff HEAD";
         d = "diff";

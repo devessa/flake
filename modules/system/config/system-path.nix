@@ -4,6 +4,7 @@
       git
       starship
       vim
+      ntfs3g
     ];
   };
 }
