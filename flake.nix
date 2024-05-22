@@ -8,25 +8,46 @@
     kyolinedev's nixos configuration.
   '';
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./flake];};
+  outputs = inputs: let
+    inherit (inputs.home-manager.lib) homeManagerConfiguration;
+    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+  in
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
+      perSystem = {pkgs, ...}: {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            alejandra
+            deadnix
+            git
+            nil
+          ];
+          name = "dev-pc";
+          meta.description = "default devshell";
+          DIRENV_LOG_FORMAT = "";
+        };
+        formatter = pkgs.alejandra;
+      };
+
+      flake = {
+        homeConfigurations = {
+          "dev" = homeManagerConfiguration {
+            extraSpecialArgs = {inherit inputs;};
+            inherit pkgs;
+            modules = [./home.nix];
+          };
+        };
+      };
+    };
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
-    nur.url = "github:nix-community/NUR";
     nh.url = "github:viperML/nh";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    sops-nix.url = "github:mic92/sops-nix";
     nix-index-db.url = "github:mic92/nix-index-database";
-
-    mysecrets = {
-      url = "git+ssh://git@192.168.1.203:22/zero/sops.git?ref=main&shallow=1";
-      flake = false;
-    };
-
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-db.inputs.nixpkgs.follows = "nixpkgs";
     nh.inputs.nixpkgs.follows = "nixpkgs";

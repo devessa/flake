@@ -1,4 +1,11 @@
 {lib, ...}: {
+  imports = [
+    ./dev.nix
+    ./desktop.nix
+    ./services.nix
+    ./etc.nix
+  ];
+
   home = {
     username = "dev";
     homeDirectory = "/home/dev";
@@ -6,7 +13,7 @@
   };
 
   manual = {
-    html.enable = false;
+    html.enable = true;
     json.enable = false;
     manpages.enable = false;
   };
